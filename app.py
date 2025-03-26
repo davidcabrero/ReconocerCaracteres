@@ -8,8 +8,7 @@ import keras
 app = Flask(__name__)
 
 # Cargar el modelo entrenado
-with open("model.pkl", "rb") as file:
-    model = pickle.load(file)  
+model = keras.models.load_model("model.h5")
 
 # Lista de clases de EMNIST Balanced
 classes = [
