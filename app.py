@@ -25,14 +25,23 @@ def preprocess_image(image):
 @app.route("/", methods=["GET", "POST"])
 def home():
     if request.method == "POST":
-        file = request.files["file"] # Obtener archivo
+        file = request.files["file"]
         if file:
-            image = Image.open(io.BytesIO(file.read())) # Leer imagen
-            processed_image = preprocess_image(image) # Preprocesar imagen
-            prediction = model.predict(processed_image) # Realizar predicción
-            index = np.argmax(prediction)  # Obtener la clase con mayor probabilidad
-            character = classes[index]  # Convertir índice en carácter
-            return render_template("result.html", digit=character)
+            image = Image.open(io.BytesIO(file.read()))
+            processed_image = preprocess_image(image)
+            prediction = model.predict(processed_image)[0]
+            top_indices = np.argsort(prediction)[::-1][:2]
+            first_char = classes[top_indices[0]]
+            second_char = classes[top_indices[1]]
+            first_prob = prediction[top_indices[0]] * 100
+            second_prob = prediction[top_indices[1]] * 100
+            return render_template(
+                "result.html",
+                first_char=first_char,
+                second_char=second_char,
+                first_prob=first_prob,
+                second_prob=second_prob
+            )
     return render_template("home.html")
 
 if __name__ == "__main__":
