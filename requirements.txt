@@ -1,0 +1,8 @@
+Flask
+numpy
+pillow
+keras
+pickle
+tensorflow
+numpy
+tensorflow-datasets
