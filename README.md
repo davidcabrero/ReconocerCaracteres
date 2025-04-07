@@ -1,9 +1,9 @@
 # Reconocimiento de Caracteres
 
-Este proyecto es una aplicación web basada en Flask que permite reconocer caracteres escritos a mano utilizando un modelo de deep learning con redes neuronales entrenado con el dataset EMNIST Balanced.
+Este proyecto es una aplicación web basada en Flask que permite reconocer caracteres escritos de números a mano utilizando un modelo de deep learning con redes neuronales entrenado con el dataset MNIST.
 
 ## 📌 Características
-- Predicción de caracteres (números y letras) a partir de imágenes.
+- Predicción de caracteres (números) a partir de imágenes.
 - Interfaz web para cargar imágenes y obtener resultados.
 - Modelo preentrenado almacenado en `model.pkl`.
 - Preprocesamiento automático de imágenes.

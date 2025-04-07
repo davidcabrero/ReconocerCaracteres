@@ -10,10 +10,12 @@ app = Flask(__name__)
 # Cargar el modelo entrenado
 model = keras.models.load_model("model.h5")
 
-# Lista de clases de EMNIST Balanced
+# Lista de clases de MNIST solo numeros del 0 al 9
 classes = [
-    "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"
+    "0", "1", "2", "3", "4",
+    "5", "6", "7", "8", "9"
 ]
+
 
 def preprocess_image(image):
     image = image.convert("L")  # Convertir a escala de grises
